@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎂 Lista de Deseos de Cumpleaños</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue-50: #EEF5FD;
+    --blue-100: #D6E9F9;
+    --blue-200: #AACFEF;
+    --blue-400: #4D9BDC;
+    --blue-500: #2C82C9;
+    --blue-600: #1E6AA8;
+    --text-dark: #1a3a5c;
+    --text-mid: #3a6286;
+    --text-light: #6a97c0;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(160deg, #deeef9 0%, #eaf4fd 40%, #f5faff 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 70px 20px 50px;
+  }
+  .balloons {
+    font-size: 2.4rem;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue-500);
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .hero-title em { font-style: italic; color: var(--blue-500); }
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--text-mid);
+    max-width: 480px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-100);
+    border: 1.5px solid var(--blue-200);
+    border-radius: 999px;
+    padding: 9px 22px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--blue-600);
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 500px;
+    margin: 0 auto 44px;
+    padding: 0 24px;
+  }
+  .divider-line { flex: 1; height: 1px; background: var(--blue-200); }
+  .divider-icon { color: var(--blue-400); font-size: 1rem; }
+
+  /* GIFTS */
+  .gifts-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  .section-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 28px;
+  }
+  .gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .gift-item {
+    background: white;
+    border-radius: 14px;
+    border: 1.5px solid var(--blue-100);
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .gift-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(44,130,201,0.1);
+  }
+  .gift-emoji {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+  .gift-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.35;
+  }
+
+  /* BACK */
+  .back-section {
+    text-align: center;
+    padding-bottom: 64px;
+  }
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--blue-500);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 15px 38px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-back:hover { background: var(--blue-600); transform: scale(1.03); }
+  .btn-back:active { transform: scale(0.98); }
+
+  @media (max-width: 700px) {
+    .gifts-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 440px) {
+    .gifts-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .balloons { animation: none; }
+    .gift-item { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="balloons">🎈🎂🎈</div>
+  <p class="hero-eyebrow">Mi lista de deseos</p>
+  <h1 class="hero-title">¡Este año sí sé<br><em>exactamente</em> qué quiero!</h1>
+  <p class="hero-sub">Hola 💙 Si deseas conocer algunos de mis gustos o encontrar inspiración para un detalle especial, aquí encontrarás algunas ideas que me encantan.</p>
+  <div class="hero-badge"><span>🎁</span><span>Seleccionados con mucho cariño</span></div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <div class="divider-icon">✦</div>
+  <div class="divider-line"></div>
+</div>
+
+<section class="gifts-section">
+  <p class="section-label">Lo que más me encantaría recibir</p>
+  <div class="gifts-grid">
+    <div class="gift-item"><span class="gift-emoji">🧴</span><span class="gift-name">Crema hidratante</span></div>
+    <div class="gift-item"><span class="gift-emoji">🌸</span><span class="gift-name">Reloj de mano</span></div>
+    <div class="gift-item"><span class="gift-emoji">🛁</span><span class="gift-name">Set de baño aromático</span></div>
+    <div class="gift-item"><span class="gift-emoji">🧣</span><span class="gift-name">Bolsa para la playa</span></div>
+    <div class="gift-item"><span class="gift-emoji">👒</span><span class="gift-name">Impermeable</span></div>
+    <div class="gift-item"><span class="gift-emoji">🕯️</span><span class="gift-name">Set de vasos</span></div>
+    <div class="gift-item"><span class="gift-emoji">🍫</span><span class="gift-name">Caja de chocolates</span></div>
+    <div class="gift-item"><span class="gift-emoji">☕</span><span class="gift-name">Sandalias</span></div>
+    <div class="gift-item"><span class="gift-emoji">📚</span><span class="gift-name">juego de platos</span></div>
+    <div class="gift-item"><span class="gift-emoji">🌿</span><span class="gift-name">Juegos de cuchillos</span></div>
+    <div class="gift-item"><span class="gift-emoji">🧘</span><span class="gift-name">Sesión de masaje o spa</span></div>
+    <div class="gift-item"><span class="gift-emoji">🎨</span><span class="gift-name">Toallas de baño</span></div>
+    <div class="gift-item"><span class="gift-emoji">🧶</span><span class="gift-name">Set de tejido o bordado</span></div>
+    <div class="gift-item"><span class="gift-emoji">💌</span><span class="gift-name">Sombrilla</span></div>
+    <div class="gift-item"><span class="gift-emoji">🍷</span><span class="gift-name">Botella de vino</span></div>
+    <div class="gift-item"><span class="gift-emoji">💍</span><span class="gift-name">Joyería o bisutería</span></div>
+    <div class="gift-item"><span class="gift-emoji">👜</span><span class="gift-name">Cartera o bolso</span></div>
+    <div class="gift-item"><span class="gift-emoji">🌙</span><span class="gift-name">Pijama</span></div>
+    <div class="gift-item"><span class="gift-emoji">🎵</span><span class="gift-name">Celular</span></div>
+    <div class="gift-item"><span class="gift-emoji">🍽️</span><span class="gift-name">Cena en restaurante</span></div>
+    <div class="gift-item"><span class="gift-emoji">🖼️</span><span class="gift-name">Cuadro decorativo para el hogar</span></div>
+    <div class="gift-item"><span class="gift-emoji">🌺</span><span class="gift-name">Bocina</span></div>
+    <div class="gift-item"><span class="gift-emoji">🧁</span><span class="gift-name">Almohada</span></div>
+    <div class="gift-item"><span class="gift-emoji">🪴</span><span class="gift-name">Dispensador de agua de garrafón</span></div>
+    <div class="gift-item"><span class="gift-emoji">🎭</span><span class="gift-name">Cobre cama o cubrecama</span></div>
+    <div class="gift-item"><span class="gift-emoji">🧤</span><span class="gift-name">Sábana o cobertor</span></div>
+    <div class="gift-item"><span class="gift-emoji">🛍️</span><span class="gift-name">Alexa o echo dot</span></div>
+    <div class="gift-item"><span class="gift-emoji">🍰</span><span class="gift-name">Set de diademas</span></div>
+    <div class="gift-item"><span class="gift-emoji">🐦</span><span class="gift-name">ventilador</span></div>
+    <div class="gift-item"><span class="gift-emoji">🧣</span><span class="gift-name">Hamaca</span></div>
+    <div class="gift-item"><span class="gift-emoji">🧡</span><span class="gift-name">Cesto de ropa</span></div>
+    <div class="gift-item"><span class="gift-emoji">🌺</span><span class="gift-name">Set de limpieza</span></div>
+    <div class="gift-item"><span class="gift-emoji">🧡</span><span class="gift-name">Detalle económico</span></div>
+    <div class="gift-item"><span class="gift-emoji">🌿</span><span class="gift-name">Toallas de baño</span></div>
+    <div class="gift-item"><span class="gift-emoji">🛍️</span><span class="gift-name">Celular</span></div>
+    <div class="gift-item"><span class="gift-emoji">🎨</span><span class="gift-name">Micro</span></div>
+    <div class="gift-item"><span class="gift-emoji">🧶</span><span class="gift-name">lo que usted guste regalar.</span></div>
+  </div>
+</section>
+
+<div class="back-section">
+  <a href="invitacion de abuela..pdf" class="btn-back">← Volver</a>
+</div>
+
+</body>
+</html>
